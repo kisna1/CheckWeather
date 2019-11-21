@@ -7,11 +7,13 @@
     android:gravity="center_vertical"
     android:minHeight="72dp"
     android:orientation="horizontal"
+    android:weightSum="1"
     android:padding="16dp">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="0.9"
         android:orientation="vertical">
 
         <TextView
@@ -54,7 +56,30 @@
             android:paddingRight="16dp"
             android:textColor="@color/colorBlack" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
 
+        <ImageView
+            android:id="@+id/imgShare"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_menu_share"
+            android:tint="@color/colorAccent" />
+
+
+        <ImageView
+            android:id="@+id/imgFav"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:src="@drawable/ic_favourite"
+            android:tint="@color/colorAccent" />
+    </LinearLayout>
 
 
 </LinearLayout>
