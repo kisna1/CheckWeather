@@ -1,5 +1,6 @@
 package com.org.checkweather.view.views;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,8 +10,11 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.org.checkweather.R;
@@ -41,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        actionBarSetting("Weather", "");
+
 
         rcyForeCast = findViewById(R.id.rcyForecast);
         layoutManager = new LinearLayoutManager(this);
@@ -70,6 +76,33 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+    }
+
+
+    private void actionBarSetting(String Title, String subTitle) {
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setDisplayShowHomeEnabled(false);
+        mActionBar.setDisplayShowTitleEnabled(false);
+        LayoutInflater mInflater = LayoutInflater.from(this);
+        View lView = mInflater.inflate(R.layout.toolbar_custom, null);
+        mActionBar.setCustomView(lView);
+        mActionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        mActionBar.setDisplayShowCustomEnabled(true);
+        TextView lTitle = lView.findViewById(R.id.txt_title);
+        lTitle.setText(Title);
+        ImageView lBack = lView.findViewById(R.id.img_back);
+
+        TextView lSubTitle = lView.findViewById(R.id.txt_sub_title);
+        lSubTitle.setVisibility(View.VISIBLE);
+        lSubTitle.setText(subTitle);
+
+        lBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 

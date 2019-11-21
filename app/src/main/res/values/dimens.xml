@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="veryLargeSize">20sp</dimen>
+    <dimen name="largeSize">18sp</dimen>
+    <dimen name="mediumSize">15sp</dimen>
+    <dimen name="smallSize">10sp</dimen>
+
+    <dimen name="veryLargeMargin">40dp</dimen>
+    <dimen name="largeMargin">20dp</dimen>
+    <dimen name="mediumMargin">15dp</dimen>
+    <dimen name="smallMargin">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+</resources>

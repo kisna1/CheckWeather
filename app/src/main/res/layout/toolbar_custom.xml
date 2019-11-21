@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/actionBarSize"
+    android:background="@color/colorPrimary">
+
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="wrap_content"
+        android:layout_height="?android:attr/actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:paddingRight="@dimen/smallMargin"
+        android:scaleType="centerInside"
+        android:src="@drawable/arrow_left"
+        tools:ignore="KeyboardInaccessibleWidget" />
+    <!--android:src="@drawable/new_back" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/veryLargeMargin"
+        android:layout_toEndOf="@+id/img_back"
+        android:layout_toRightOf="@+id/img_back"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@string/txt_bar_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/largeSize" />
+
+        <TextView
+            android:id="@+id/txt_sub_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_title"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="subTitle"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorWhite"
+            android:visibility="gone" />
+    </LinearLayout>
+    <!--android:layout_toEndOf="@+id/img_back" />-->
+
+    <ImageView
+        android:id="@+id/imageViewSignUpAddIcon"
+        android:layout_width="@dimen/veryLargeMargin"
+        android:layout_height="match_parent"
+        android:layout_toLeftOf="@+id/imageViewSignUpUpdateIcon"
+        android:contentDescription="@null"
+        android:padding="5dp"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/imageViewSignUpUpdateIcon"
+        android:layout_width="@dimen/veryLargeMargin"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:padding="5dp"
+        android:visibility="gone"/>
+
+    <!--<ImageView
+        android:id="@+id/imgHelpApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_toLeftOf="@+id/imageViewSignUpUpdateIcon"
+        android:contentDescription="@null"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:src="@drawable/ic_pratisaad"/>-->
+
+    <TextView
+        android:id="@+id/txt_Done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+</RelativeLayout>
