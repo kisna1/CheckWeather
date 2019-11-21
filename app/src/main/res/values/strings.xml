@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">CheckWeather</string>
+    <string name="app_name">Check Weather</string>
+    <string name="loading">Loading...</string>
 </resources>

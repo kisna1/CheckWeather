@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
     private EditText edtSearchCity;
     private APIInterface apiInterface;
-
+    private ProgressDialog progressDialog ;
     private List<Forecast.list> forecastList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +46,14 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         rcyForeCast.setLayoutManager(layoutManager);
         rcyForeCast.setItemAnimator(new DefaultItemAnimator());
+        edtSearchCity = findViewById(R.id.editTextSearch);
 
         forecastList = new ArrayList<>();
         apiInterface = APIClient.getClient().create(APIInterface.class);
+
+        progressDialog =  new ProgressDialog(this);
+        progressDialog.setMessage("Loading...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
         forecastAdapter = new ForecastAdapter(forecastList, MainActivity.this);
         rcyForeCast.setAdapter(forecastAdapter);
@@ -68,16 +74,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void callToGetForecast(){
-
+        progressDialog.show();
         String cityName = edtSearchCity.getText().toString();
 
         Call<Forecast> call = apiInterface.doGetForecast(cityName, Utility.APP_ID, Utility.COUNT, Utility.UNITS);
         call.enqueue(new Callback<Forecast>() {
             @Override
             public void onResponse(Call<Forecast> call, Response<Forecast> response) {
+                progressDialog.dismiss();
                 Log.d(TAG, "Response :" + response.body().toString());
-
-
                 forecastList =  response.body().list;
 
                 forecastAdapter = new ForecastAdapter(forecastList, MainActivity.this);
@@ -86,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Forecast> call, Throwable t) {
+                progressDialog.dismiss();
                 Log.e(TAG, t.toString());
             }
         });
